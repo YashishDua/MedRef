@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">HackBVP</string>
+    <string name="app_name">ParkIn</string>
+    <string name="title_activity_select_lang">SelectLangActivity</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_training">TrainingActivity</string>
+
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_select_parking_area">SelectParkingArea</string>
 </resources>
