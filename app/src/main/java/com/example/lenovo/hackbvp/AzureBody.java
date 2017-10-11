@@ -14,17 +14,17 @@ public class AzureBody {
 
     public static class Inputs {
         public Inputs(ArrayList<TrainingData> inputs1) {
-            this.inputs1 = inputs1;
+            this.input1 = inputs1;
         }
 
-        ArrayList<TrainingData> inputs1;
+        ArrayList<TrainingData> input1;
 
         public void setInputs1(ArrayList<TrainingData> inputs1) {
-            this.inputs1 = inputs1;
+            this.input1 = inputs1;
         }
 
         public ArrayList<TrainingData> getInputs1() {
-            return inputs1;
+            return input1;
         }
 
     }

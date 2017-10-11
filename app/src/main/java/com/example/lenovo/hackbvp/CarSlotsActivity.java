@@ -51,9 +51,12 @@ public class CarSlotsActivity extends AppCompatActivity implements SensorEventLi
                             if(response.isSuccessful()){
                                 ResponseAzure responseAzure = response.body();
                                 currentString[0] = responseAzure.getType();
-                                if(currentString[0].compareTo("standing")==0 && type.compareTo("sitting") ==0){
+                                Log.i("TAG", "onResponse: "+currentString[0]);
+                                if((currentString[0].compareTo("standing")==0 || currentString[0].compareTo("walking")==0 )&& type.compareTo("sitting") ==0){
                                     changed = true;
                                     Toast.makeText(CarSlotsActivity.this,"Parked",Toast.LENGTH_SHORT).show();
+                                    TextView t = (TextView)l.findViewById(2);
+                                    t.setText("Parked !");
                                 }
                                 type = currentString[0];
                                 arrayList.clear();
@@ -76,6 +79,7 @@ public class CarSlotsActivity extends AppCompatActivity implements SensorEventLi
     };
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
+    private LinearLayout l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +87,7 @@ public class CarSlotsActivity extends AppCompatActivity implements SensorEventLi
         setContentView(R.layout.activity_car_slots);
 
         arrayList = new ArrayList<>();
-        LinearLayout l = (LinearLayout) findViewById(R.id.parentPanel);
+        l = (LinearLayout) findViewById(R.id.parentPanel);
         for (int i = 0; i < 50; i++) {
             final TextView f = new TextView(this);
             f.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +103,7 @@ public class CarSlotsActivity extends AppCompatActivity implements SensorEventLi
             f.setBackgroundColor(Color.WHITE);
             f.setTextColor(Color.WHITE);
             f.setText("Unparked");
+            f.setId(i);
             f.setTextSize(20);
             l.addView(f);
         }
